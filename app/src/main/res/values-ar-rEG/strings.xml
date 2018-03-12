@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="username">اسم المستخدم</string>
+    <string name="password">كلمة المرور</string>
+    <string name="remember_me">تذكرني</string>
+    <string name="log_in">تسجيل الدخول</string>
+    <string name="register">إنشاء حساب</string>
+    <string name="or">أو</string>
+    <string name="mobile_search">إبحث عن جوالك</string>
+    <string name="name">الاسم</string>
+    <string name="phone_num">رقم المحمول</string>
+    <string name="governorate">المحافظة</string>
+    <string name="city">المدينة</string>
+    <string name="address">العنوان</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="add_photo">أضف صوره شخصية</string>
+
+</resources>

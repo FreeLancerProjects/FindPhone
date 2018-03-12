@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.SimiColon.MobileSearch.findphone.Activities.Activity_Login"
+    android:background="@color/colorPrimary"
+    android:scrollbars="none"
+
+    >
+<RelativeLayout
+    android:layoutDirection="ltr"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        />
+    <TextView
+        android:id="@+id/txt_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mobile_search"
+        android:textSize="18sp"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/white"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_logo"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        >
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginBottom="@dimen/_5sdp"
+
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_27sdp"
+                android:hint="@string/username"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/_5sdp"
+                android:paddingRight="@dimen/_5sdp"
+                android:gravity="center_vertical|right"
+                android:textColorHint="@color/black"
+                android:drawableRight="@drawable/user_name"
+                android:textSize="14sp"
+                android:drawablePadding="@dimen/_5sdp"
+
+                />
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_27sdp"
+                android:hint="@string/password"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/_5sdp"
+                android:paddingRight="@dimen/_5sdp"
+                android:gravity="center_vertical|right"
+                android:inputType="textPassword"
+                android:textColorHint="@color/black"
+                android:drawableRight="@drawable/pass"
+                android:textSize="14sp"
+                android:drawablePadding="@dimen/_5sdp"
+
+
+                />
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/remember_me"
+            android:textSize="14sp"
+            />
+        <Button
+            android:layout_width="150sp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="@string/log_in"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/login_regis_btn"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/or"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="18sp"
+            />
+        <Button
+            android:id="@+id/regBtn"
+            android:layout_width="150sp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="@string/register"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/login_regis_btn"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+    </LinearLayout>
+</RelativeLayout>
+</ScrollView>
