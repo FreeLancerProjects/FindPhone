@@ -100,7 +100,7 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
                 {
 
                         Intent i=new Intent(Activity_Login.this, MainActivity.class);
-
+                        Toast.makeText(Activity_Login.this, ""+response.body().getName(), Toast.LENGTH_SHORT).show();
                         startActivity(i);
                         finish();
 
