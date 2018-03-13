@@ -13,6 +13,23 @@
     <string name="city">المدينة</string>
     <string name="address">العنوان</string>
     <string name="email">البريد الإلكتروني</string>
-    <string name="add_photo">أضف صوره شخصية</string>
+    <string name="country">الدولة</string>
+    <string name="choose_photo">اختار صورة للمف الشخصي</string>
+    <string name="create_account">انشاء حساب </string>
+    <string name="faild">حدث خطأ </string>
+
+    <string name="empty_email">أدخل البريد الإلكتروني</string>
+    <string name="inv_email">البريد الإلكتروني غير صحيح</string>
+    <string name="sel_per_photo">اختار صورة للمف الشخصي</string>
+    <string name="empty_phone">أدخل رقم الجوال</string>
+    <string name="empty_city">أدخل رقم المدينه</string>
+    <string name="empty_country">أدخل رقم الدوله</string>
+    <string name="empty_address">أدخل رقم العنوان</string>
+    <string name="inv_phone">رقم الجوال غير صحيح</string>
+    <string name="add_photo">أضف صورة للملف الشخصي</string>
+    <string name="at_least_3ch">الاسم يجب ان يحتوي علي الاقل 3 حروف</string>
+    <string name="pass_bet_4_10">كلمه المرور يجب ان تكون مابين 4 ل 10 حروف او ارقام</string>
+    <string name="login">جارى تسجيل الدخول ...</string>
+
 
 </resources>

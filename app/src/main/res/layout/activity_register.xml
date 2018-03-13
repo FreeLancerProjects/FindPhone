@@ -26,6 +26,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             >
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profile"
                 android:layout_width="@dimen/_65sdp"
                 android:layout_height="@dimen/_65sdp"
                 app:civ_border_color="#00E5FF"
@@ -34,6 +35,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:background="@drawable/image_bg"
+                android:contextClickable="true"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -70,6 +72,7 @@
 
                 >
                 <EditText
+                    android:id="@+id/edt_name"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_23sdp"
                     android:hint="@string/name"
@@ -101,6 +104,7 @@
                 app:fletPaddingRight="@dimen/_5sdp"
                 >
                 <EditText
+                    android:id="@+id/edt_phone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_23sdp"
                     android:hint="@string/phone_num"
@@ -132,6 +136,7 @@
                 app:fletPaddingRight="@dimen/_5sdp"
                 >
                 <EditText
+                    android:id="@+id/edt_email"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_23sdp"
                     android:hint="@string/email"
@@ -153,6 +158,7 @@
                 android:layout_marginLeft="@dimen/_38sdp"
 
                 />
+
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,36 +168,7 @@
                 app:fletPaddingRight="@dimen/_5sdp"
                 >
                 <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_23sdp"
-                    android:hint="@string/governorate"
-                    android:background="@drawable/et_bg"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:paddingRight="@dimen/_5sdp"
-                    android:gravity="center_vertical|left"
-                    android:textColorHint="@color/white"
-                    android:drawableLeft="@drawable/place_icon"
-                    android:textSize="14sp"
-                    android:drawablePadding="@dimen/_5sdp"
-
-                    />
-            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5px"
-                android:background="#03A9F4"
-                android:layout_marginLeft="@dimen/_38sdp"
-
-                />
-            <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
-                android:layout_marginBottom="@dimen/_5sdp"
-                app:fletPaddingLeft="@dimen/_5sdp"
-                app:fletPaddingRight="@dimen/_5sdp"
-                >
-                <EditText
+                    android:id="@+id/edt_city"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_23sdp"
                     android:hint="@string/city"
@@ -220,8 +197,40 @@
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:fletPaddingLeft="@dimen/_5sdp"
                 app:fletPaddingRight="@dimen/_5sdp"
+                >
+                <EditText
+                    android:id="@+id/edt_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:hint="@string/country"
+                    android:background="@drawable/et_bg"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:gravity="center_vertical|left"
+                    android:textColorHint="@color/white"
+                    android:drawableLeft="@drawable/place_icon"
+                    android:textSize="14sp"
+                    android:drawablePadding="@dimen/_5sdp"
+
+                    />
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5px"
+                android:background="#03A9F4"
+                android:layout_marginLeft="@dimen/_38sdp"
+
+                />
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_bg"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:fletPaddingLeft="@dimen/_5sdp"
+                app:fletPaddingRight="@dimen/_5sdp"
             >
             <EditText
+                android:id="@+id/edt_address"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_23sdp"
                 android:hint="@string/address"
@@ -243,6 +252,7 @@
                 android:layout_marginLeft="@dimen/_38sdp"
 
                 />
+
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -252,36 +262,7 @@
                 app:fletPaddingRight="@dimen/_5sdp"
                 >
                 <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_23sdp"
-                    android:hint="@string/username"
-                    android:background="@drawable/et_bg"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:paddingRight="@dimen/_5sdp"
-                    android:gravity="center_vertical|left"
-                    android:textColorHint="@color/white"
-                    android:drawableLeft="@drawable/name_icon"
-                    android:textSize="14sp"
-                    android:drawablePadding="@dimen/_5sdp"
-
-                    />
-            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5px"
-                android:background="#03A9F4"
-                android:layout_marginLeft="@dimen/_38sdp"
-
-                />
-            <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
-                android:layout_marginBottom="@dimen/_5sdp"
-                app:fletPaddingLeft="@dimen/_5sdp"
-                app:fletPaddingRight="@dimen/_5sdp"
-                >
-                <EditText
+                    android:id="@+id/edt_pass"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_23sdp"
                     android:inputType="textPassword"
@@ -305,6 +286,7 @@
 
                 />
             <Button
+                android:id="@+id/btn_register"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center"
@@ -313,6 +295,7 @@
                 android:textColor="@color/colorPrimary"
                 android:text="@string/register"
                 android:textSize="16sp"
+                android:clickable="true"
                 />
         </LinearLayout>
 

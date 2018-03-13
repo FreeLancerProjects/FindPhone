@@ -28,5 +28,7 @@ dependencies {
     compile 'com.intuit.sdp:sdp-android:1.0.5'
     compile 'com.wrapp.floatlabelededittext:library:0.0.6'
     compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
 
 }
