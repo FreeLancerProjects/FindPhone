@@ -1,11 +1,14 @@
 package com.SimiColon.MobileSearch.findphone.Services;
 
-import com.SimiColon.MobileSearch.findphone.Model.Register_Model;
+import com.SimiColon.MobileSearch.findphone.Model.User_Model;
 import com.SimiColon.MobileSearch.findphone.Model.Report_Model;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -18,7 +21,7 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("api/registration")
-    Call<Register_Model> userSignUp(
+    Call<User_Model> userSignUp(
             @Field("name")     String name,
             @Field("password") String password,
             @Field("photo")    String photo,
@@ -30,8 +33,8 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("api/login")
-    Call<Register_Model> userLogIn(
-            @Field("email")    String email,
+    Call<User_Model> userLogIn(
+            @Field("user_email")    String email,
             @Field("password") String password);
 
      /*---------------------------------------- find phone & report -------------------------------------------*/
@@ -51,9 +54,11 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("api/findephone")
-    Call<Report_Model> findephone(
+    Call<List<Report_Model>> findephone(
             @Field("imei")       String imei);
 
+    @GET("api/allphones")
+    Call<List<Report_Model>> getallphones();
 
 
 

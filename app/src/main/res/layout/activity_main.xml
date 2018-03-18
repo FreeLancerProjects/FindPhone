@@ -5,9 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorPrimary"
     tools:context="com.SimiColon.MobileSearch.findphone.Activities.MainActivity">
 
 
 
+    <Button
+        android:id="@+id/search"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_bg_white"
+        android:layout_margin="@dimen/_10sdp"
+        android:text="@string/find_phone"/>
 
+    <Button
+        android:id="@+id/btn_report"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/et_bg_white"
+        android:text="@string/report"/>
 </LinearLayout>

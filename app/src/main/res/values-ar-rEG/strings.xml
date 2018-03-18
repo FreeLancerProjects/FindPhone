@@ -30,6 +30,15 @@
     <string name="at_least_3ch">الاسم يجب ان يحتوي علي الاقل 3 حروف</string>
     <string name="pass_bet_4_10">كلمه المرور يجب ان تكون مابين 4 ل 10 حروف او ارقام</string>
     <string name="login">جارى تسجيل الدخول ...</string>
+    <string name="find_phone">بحث عن تلفون </string>
+    <string name="report">بلاغ</string>
+    <string name="imei">imei</string>
+    <string name="brand">الماركه</string>
+    <string name="owner">المالك</string>
+    <string name="statue">الحاله</string>
+    <string name="descreption">الوصف</string>
+    <string name="add_phone_photo">أضافه صوره التلفون</string>
+    <string name="send">ارسال</string>
 
 
 </resources>

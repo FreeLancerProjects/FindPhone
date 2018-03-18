@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.SimiColon.MobileSearch.findphone.Model.User_Model;
+import com.SimiColon.MobileSearch.findphone.Model.Report_Model;
 import com.SimiColon.MobileSearch.findphone.R;
 import com.SimiColon.MobileSearch.findphone.Services.Service;
 import com.SimiColon.MobileSearch.findphone.Services.ServiceApi;
@@ -28,58 +28,60 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Field;
 
 
-public class Activity_Register extends AppCompatActivity implements View.OnClickListener {
+public class ActivityReport extends AppCompatActivity implements View.OnClickListener {
 
-    EditText name,phone,email,city,country,address,password;
-    CircleImageView profileImg;
+    EditText imei,brand,owner,statue,phone,email,address,description;
+    CircleImageView phoneImage;
     private final int IMAGE_REQ=120;
     private String enCodedImage="";
-    Button register;
+    Button send;
     private ProgressDialog pDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_report);
 
         initView();
 
     }
-
+  
     private void initView() {
 
-        name=findViewById(R.id.edt_name);
+        imei=findViewById(R.id.edt_imei);
+        brand=findViewById(R.id.edt_brand);
+        owner=findViewById(R.id.edt_owner);
+        statue=findViewById(R.id.edt_statue);
         phone=findViewById(R.id.edt_phone);
         email=findViewById(R.id.edt_email);
-        city=findViewById(R.id.edt_city);
-        country=findViewById(R.id.edt_country);
         address=findViewById(R.id.edt_address);
-        password=findViewById(R.id.edt_pass);
-        profileImg=findViewById(R.id.img_profile);
-        register=findViewById(R.id.btn_register);
+        description=findViewById(R.id.edt_desc);
+        phoneImage=findViewById(R.id.img_phone);
+        send=findViewById(R.id.btn_send);
 
-        profileImg.setOnClickListener(this);
-        register.setOnClickListener(this);
+       phoneImage.setOnClickListener(this);
+        send.setOnClickListener(this);
 
 
 
     }
-    public void signUp() {
+    public void sendReport() {
 
-        if (TextUtils.isEmpty(name.getText().toString()))
+        if (TextUtils.isEmpty(imei.getText().toString()))
         {
-            name.setError(getString(R.string.name));
+            imei.setError(getString(R.string.name));
         }else
         {
-            name.setError(null);
+            imei.setError(null);
         }
-        if (TextUtils.isEmpty(password.getText().toString()))
+        if (TextUtils.isEmpty(brand.getText().toString()))
         {
-            password.setError(getString(R.string.empty_password));
+            brand.setError(getString(R.string.empty_password));
         }else
         {
-            password.setError(null);
+            brand.setError(null);
         }
         if (TextUtils.isEmpty(email.getText().toString()))
         {
@@ -102,19 +104,19 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
         {
             phone.setError(null);
         }
-        if (TextUtils.isEmpty(city.getText().toString()))
+        if (TextUtils.isEmpty(statue.getText().toString()))
         {
-            city.setError(getString(R.string.empty_city));
+            statue.setError(getString(R.string.empty_city));
         }else
         {
-            city.setError(null);
+            statue.setError(null);
         }
-        if (TextUtils.isEmpty(country.getText().toString()))
+        if (TextUtils.isEmpty(description.getText().toString()))
         {
-            country.setError(getString(R.string.empty_country));
+            description.setError(getString(R.string.empty_country));
         }else
         {
-            country.setError(null);
+            description.setError(null);
         }
         if (TextUtils.isEmpty(address.getText().toString()))
         {
@@ -124,56 +126,57 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
             address.setError(null);
         }
 
-        saveToServerDB();
+       saveToServerDB();
 
 
 
     }
 
     private void saveToServerDB() {
-        pDialog = new ProgressDialog(Activity_Register.this);
+        pDialog = new ProgressDialog(ActivityReport.this);
         pDialog.setIndeterminate(true);
-        pDialog.setMessage("create");
+        pDialog.setMessage("send");
         pDialog.setCancelable(true);
         pDialog.setCanceledOnTouchOutside(false);
 
         showpDialog();
 
-        String uname = name.getText().toString();
-        String upass = password.getText().toString();
+        final String uimei = imei.getText().toString();
+        String ubrand = brand.getText().toString();
         String uemail = email.getText().toString();
         String uphone = phone.getText().toString();
-        String ucity = city.getText().toString();
-        String ucountry = phone.getText().toString();
         String uaddress = address.getText().toString();
-        
+        String uowner = owner.getText().toString();
+        String ustatue = statue.getText().toString();
+        String udesc = description.getText().toString();
         Service services = ServiceApi.createClient().create(Service.class);
-        Call<User_Model> userCall = services.userSignUp(uname,upass,enCodedImage,uphone,uemail,ucountry,ucity,uaddress);
-        userCall.enqueue(new Callback<User_Model>() {
+        Call<Report_Model> userCall = services.reportphone(uimei,ubrand,uowner,ustatue,uphone,uemail,uaddress,enCodedImage,udesc);
+        userCall.enqueue(new Callback<Report_Model>() {
             @Override
-            public void onResponse(Call<User_Model> call, Response<User_Model> response) {
+            public void onResponse(Call<Report_Model> call, Response<Report_Model> response) {
                 hidepDialog();
 
 
 
-                    if (response.isSuccessful()) {
+                if (response.isSuccessful()) {
 
-                        Intent intent = new Intent(Activity_Register.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                    Toast.makeText(ActivityReport.this, ""+uimei, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ActivityReport.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
 
-                    }else
+                }else
                 {
-                    Toast.makeText(Activity_Register.this, "" +getString(R.string.faild), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActivityReport.this, "555" +getString(R.string.faild), Toast.LENGTH_SHORT).show();
 
                 }
 
             }
 
             @Override
-            public void onFailure(Call<User_Model> call, Throwable t) {
+            public void onFailure(Call<Report_Model> call, Throwable t) {
                 hidepDialog();
-                Toast.makeText(Activity_Register.this, "" +getString(R.string.faild), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityReport.this, "" +getString(R.string.faild), Toast.LENGTH_SHORT).show();
 
                 Log.d("onFailure", t.toString());
             }
@@ -192,11 +195,11 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.btn_register:
-                signUp();
+            case R.id.btn_send:
+                sendReport();
                 break;
 
-            case R.id.img_profile:
+            case R.id.img_phone:
                 SelectPhoto();
                 break;
         }
@@ -219,7 +222,7 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
             Uri uri = data.getData();
             try {
                 Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
-                profileImg.setImageBitmap(bitmap);
+                phoneImage.setImageBitmap(bitmap);
                 enCodedImage = enCodeImage(bitmap);
 
             } catch (FileNotFoundException e) {

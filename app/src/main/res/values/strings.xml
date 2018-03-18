@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FindPhone</string>
+    <string name="app_name">Mobi Lost </string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="remember_me">Remember me</string>
@@ -18,7 +18,7 @@
     <string name="choose_photo">choose photo</string>
     <string name="create_acount">create acount </string>
     <string name="faild"> failed </string>
-
+    <string name="search_result">Search Results</string>
     <string name="empty_username">user name is empty</string>
     <string name="empty_password">password is empty</string>
     <string name="inv_email">invalid email address</string>
@@ -32,5 +32,14 @@
     <string name="city_at_3ch">at least 3 characters</string>
     <string name="address_at_3">at least 3 characters</string>
     <string name="login">Login...</string>
+    <string name="find_phone">find phone</string>
+    <string name="report">Report</string>
+    <string name="imei">imei</string>
+    <string name="brand">brand</string>
+    <string name="owner">owner</string>
+    <string name="statue">statue</string>
+    <string name="descreption">description</string>
+    <string name="add_phone_photo">add phone photo</string>
+    <string name="send">Send</string>
 
 </resources>

@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.SimiColon.MobileSearch.findphone">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,23 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.SimiColon.MobileSearch.findphone.Activities.MainActivity">
-
-        </activity>
-        <activity android:name="com.SimiColon.MobileSearch.findphone.Activities.Activity_Login"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            >
+        <activity android:name=".Activities.MainActivity" />
+        <activity
+            android:name=".Activities.Activity_Login"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.SimiColon.MobileSearch.findphone.Activities.Activity_Register"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            >
-
-        </activity>
+        <activity
+            android:name=".Activities.Activity_Register"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".Activities.ActivityReport" />
+        <activity android:name=".Activities.ActivityReportResult" />
     </application>
 
 </manifest>

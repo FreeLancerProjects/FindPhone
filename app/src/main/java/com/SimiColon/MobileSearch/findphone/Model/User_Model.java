@@ -4,7 +4,7 @@ package com.SimiColon.MobileSearch.findphone.Model;
  * Created by Elashry on 12/03/2018.
  */
 
-public class Register_Model {
+public class User_Model {
 
     private String name;
     private String username;
@@ -15,8 +15,10 @@ public class Register_Model {
     private String country;
     private String city;
     private String address;
+    private Integer message;
+    private String data;
 
-    public Register_Model(String name, String username, String password, String photo, String phone, String email, String country, String city, String address) {
+    public User_Model(String name, String username, String password, String photo, String phone, String email, String country, String city, String address) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -28,7 +30,28 @@ public class Register_Model {
         this.address = address;
     }
 
-    public Register_Model() {
+    public User_Model(Integer message, String data) {
+        this.message = message;
+        this.data = data;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public User_Model() {
+    }
+
+    public Integer getMessage() {
+        return message;
+    }
+
+    public void setMessage(Integer message) {
+        this.message = message;
     }
 
     public String getAddress() {
