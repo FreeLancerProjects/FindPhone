@@ -110,7 +110,7 @@ public class AllPhonesAdapter extends RecyclerView.Adapter<AllPhonesAdapter.Hold
                 Picasso.with(context).load(R.drawable.phone_icon).into(target);
             }else
                 {
-                    Picasso.with(context).load(Uri.parse("http://mobilost.semicolonsoft.com/uploads/images/"+report_model.getPhoto())).into(target);
+                    Picasso.with(context).load(Uri.parse("mobilost.semicolonsoft.com/uploads/images/"+report_model.getPhoto())).into(target);
 
                 }
 

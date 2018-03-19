@@ -12,11 +12,19 @@ public class MainActivity extends AppCompatActivity {
 
     Button report,search;
 
+    String user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        getDataFromIntent();
+    }
+
+    private void getDataFromIntent() {
+
+        Intent intent=getIntent();
+        user_id=  intent.getStringExtra("user_id");
     }
 
     private void initView() {
@@ -27,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,ActivityReport.class);
+                intent.putExtra("user_id",user_id);
                 startActivity(intent);
             }
         });

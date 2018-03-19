@@ -39,15 +39,22 @@ public class ActivityReport extends AppCompatActivity implements View.OnClickLis
     private String enCodedImage="";
     Button send;
     private ProgressDialog pDialog;
+    String user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
 
         initView();
+        getDataFromIntent();
 
     }
-  
+
+    private void getDataFromIntent() {
+        Intent intent=getIntent();
+        user_id= intent.getStringExtra("user_id");
+    }
+
     private void initView() {
 
         imei=findViewById(R.id.edt_imei);
@@ -149,8 +156,9 @@ public class ActivityReport extends AppCompatActivity implements View.OnClickLis
         String uowner = owner.getText().toString();
         String ustatue = statue.getText().toString();
         String udesc = description.getText().toString();
+        Toast.makeText(this, ""+user_id, Toast.LENGTH_SHORT).show();
         Service services = ServiceApi.createClient().create(Service.class);
-        Call<Report_Model> userCall = services.reportphone(uimei,ubrand,uowner,ustatue,uphone,uemail,uaddress,enCodedImage,udesc);
+        Call<Report_Model> userCall = services.reportphone(user_id,uimei,ubrand,uowner,ustatue,uphone,uemail,uaddress,enCodedImage,udesc);
         userCall.enqueue(new Callback<Report_Model>() {
             @Override
             public void onResponse(Call<Report_Model> call, Response<Report_Model> response) {

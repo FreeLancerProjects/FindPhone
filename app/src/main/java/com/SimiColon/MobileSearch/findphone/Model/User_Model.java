@@ -17,6 +17,8 @@ public class User_Model {
     private String address;
     private Integer message;
     private String data;
+    private String user_id;
+
 
     public User_Model(String name, String username, String password, String photo, String phone, String email, String country, String city, String address) {
         this.name = name;
@@ -30,9 +32,26 @@ public class User_Model {
         this.address = address;
     }
 
-    public User_Model(Integer message, String data) {
+    public User_Model(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public User_Model(String password, String email) {
+        this.password = password;
+        this.email = email;
+    }
+
+    public User_Model(Integer message) {
         this.message = message;
-        this.data = data;
+
     }
 
     public String getData() {

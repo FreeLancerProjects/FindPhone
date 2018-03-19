@@ -82,6 +82,7 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
         final String uemail = email.getText().toString();
         final String upass = pass.getText().toString();
 
+
         Service service = ServiceApi.createClient().create(Service.class);
         Call<User_Model> userCall = service.userLogIn(uemail, upass);
 
@@ -89,20 +90,24 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onResponse(Call<User_Model> call, Response<User_Model> response) {
                 hidepDialog();
+
                 if (response.isSuccessful()) {
 
                   if (response.body().getMessage()==1) {
+                      String user_id=response.body().getUser_id();
                         Intent i = new Intent(Activity_Login.this, MainActivity.class);
+                        i.putExtra("user_id",user_id);
+                      Toast.makeText(Activity_Login.this, ""+user_id, Toast.LENGTH_SHORT).show();
                         startActivity(i);
                         finish();
                   } else {
-                        Toast.makeText(Activity_Login.this, "11" +getString(R.string.faild), Toast.LENGTH_SHORT).show();
-                      Intent i = new Intent(Activity_Login.this, MainActivity.class);
+                      Toast.makeText(Activity_Login.this, getString(R.string.faild), Toast.LENGTH_SHORT).show();
+                      /*Intent i = new Intent(Activity_Login.this, MainActivity.class);
                       startActivity(i);
-                      finish();
+                      finish();*/
                   }
                 } else {
-                    Toast.makeText(Activity_Login.this,"22"+ getString(R.string.faild), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Login.this,getString(R.string.faild), Toast.LENGTH_SHORT).show();
 
                 }
             }

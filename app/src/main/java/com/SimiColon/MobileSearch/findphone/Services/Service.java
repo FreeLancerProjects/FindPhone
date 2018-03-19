@@ -32,9 +32,9 @@ public interface Service {
             @Field("address")  String address);
 
     @FormUrlEncoded
-    @POST("api/login")
+    @POST("api/auth")
     Call<User_Model> userLogIn(
-            @Field("user_email")    String email,
+            @Field("email")    String email,
             @Field("password") String password);
 
      /*---------------------------------------- find phone & report -------------------------------------------*/
@@ -42,6 +42,7 @@ public interface Service {
     @FormUrlEncoded
     @POST("api/reportphone")
     Call<Report_Model> reportphone(
+            @Field("user_id_fk") String user_id_fk,
             @Field("imei")       String imei,
             @Field("brand")      String brand,
             @Field("owner")       String owner,
