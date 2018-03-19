@@ -97,7 +97,6 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
                       String user_id=response.body().getUser_id();
                         Intent i = new Intent(Activity_Login.this, MainActivity.class);
                         i.putExtra("user_id",user_id);
-                      Toast.makeText(Activity_Login.this, ""+user_id, Toast.LENGTH_SHORT).show();
                         startActivity(i);
                         finish();
                   } else {

@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -26,6 +26,9 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".Activities.ActivityReport" />
         <activity android:name=".Activities.ActivityReportResult" />
+        <activity android:name=".Activities.ReportDetail" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

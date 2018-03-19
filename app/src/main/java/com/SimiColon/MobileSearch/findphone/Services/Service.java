@@ -40,7 +40,7 @@ public interface Service {
      /*---------------------------------------- find phone & report -------------------------------------------*/
 
     @FormUrlEncoded
-    @POST("api/reportphone")
+    @POST("api/report")
     Call<Report_Model> reportphone(
             @Field("user_id_fk") String user_id_fk,
             @Field("imei")       String imei,

@@ -164,10 +164,7 @@ public class ActivityReport extends AppCompatActivity implements View.OnClickLis
             public void onResponse(Call<Report_Model> call, Response<Report_Model> response) {
                 hidepDialog();
 
-
-
                 if (response.isSuccessful()) {
-
                     Toast.makeText(ActivityReport.this, ""+uimei, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ActivityReport.this, MainActivity.class);
                     startActivity(intent);
