@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.SimiColon.MobileSearch.findphone.Model.User_Model;
 import com.SimiColon.MobileSearch.findphone.R;
+import com.SimiColon.MobileSearch.findphone.Services.Preferences;
 import com.SimiColon.MobileSearch.findphone.Services.Service;
 import com.SimiColon.MobileSearch.findphone.Services.ServiceApi;
 
@@ -23,14 +24,29 @@ import retrofit2.Response;
 public class Activity_Login extends AppCompatActivity implements View.OnClickListener {
 
     private Button register, login;
-    EditText email, pass;
+    private EditText email, pass;
     private ProgressDialog pDialog;
+    private Preferences preferences;
+    private String session,id;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        preferences = new Preferences(this);
+        session = preferences.getSession();
+        if (!TextUtils.isEmpty(session)&&session!=null)
+        {
+            id = preferences.getId();
+            if (!TextUtils.isEmpty(id) &&id !=null)
+            {
+                Intent i = new Intent(Activity_Login.this, ActivityReportResult.class);
+                i.putExtra("user_id",id);
+                startActivity(i);
+                finish();
+            }
+        }
         initView();
     }
 
@@ -50,7 +66,7 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_register:
                 Intent intent = new Intent(this, Activity_Register.class);
                 startActivity(intent);
-
+                finish();
                 break;
 
             case R.id.btn_login:
@@ -94,9 +110,11 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
                 if (response.isSuccessful()) {
 
                   if (response.body().getMessage()==1) {
+
                       String user_id=response.body().getUser_id();
-                        Intent i = new Intent(Activity_Login.this, MainActivity.class);
+                        Intent i = new Intent(Activity_Login.this, ActivityReportResult.class);
                         i.putExtra("user_id",user_id);
+                        preferences.CreateSharedPref(user_id);
                         startActivity(i);
                         finish();
                   } else {

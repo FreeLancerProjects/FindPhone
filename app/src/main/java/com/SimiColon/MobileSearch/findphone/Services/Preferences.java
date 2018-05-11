@@ -15,20 +15,43 @@ public class Preferences {
         this.context = context;
     }
 
-    public void CreateSharedPref(String id,String session)
+    public void CreateSharedPref(String id)
     {
         SharedPreferences pref = context.getSharedPreferences("user_id",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("id",id);
-        editor.putString("session",session);
+        updateSession("login");
         editor.apply();
     }
     public void ClearSharedPref()
     {
         SharedPreferences pref = context.getSharedPreferences("user_id",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putString("id","");
-        editor.putString("session","logout");
+        updateSession("logout");
+        editor.clear();
         editor.apply();
+    }
+
+    private void updateSession(String session)
+    {
+        SharedPreferences pref = context.getSharedPreferences("user_id",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("session",session);
+        editor.apply();
+
+    }
+
+    public String getSession()
+    {
+        SharedPreferences pref = context.getSharedPreferences("user_id",Context.MODE_PRIVATE);
+        String session = pref.getString("session","");
+        return session;
+    }
+
+    public String getId()
+    {
+        SharedPreferences pref = context.getSharedPreferences("user_id",Context.MODE_PRIVATE);
+        String id = pref.getString("id","");
+        return id;
     }
 }

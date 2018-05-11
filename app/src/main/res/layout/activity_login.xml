@@ -66,6 +66,7 @@
                 android:drawableRight="@drawable/user_name"
                 android:textSize="14sp"
                 android:drawablePadding="@dimen/_5sdp"
+                android:inputType="textEmailAddress"
 
                 />
         </com.wrapp.floatlabelededittext.FloatLabeledEditText>

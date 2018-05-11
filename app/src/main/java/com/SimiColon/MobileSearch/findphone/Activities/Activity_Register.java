@@ -14,10 +14,12 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.SimiColon.MobileSearch.findphone.Model.User_Model;
 import com.SimiColon.MobileSearch.findphone.R;
+import com.SimiColon.MobileSearch.findphone.Services.Preferences;
 import com.SimiColon.MobileSearch.findphone.Services.Service;
 import com.SimiColon.MobileSearch.findphone.Services.ServiceApi;
 
@@ -32,17 +34,19 @@ import retrofit2.Response;
 
 public class Activity_Register extends AppCompatActivity implements View.OnClickListener {
 
-    EditText name,phone,email,city,country,address,password;
-    CircleImageView profileImg;
+    private EditText name,phone,email,city,country,address,password;
+    private CircleImageView profileImg;
     private final int IMAGE_REQ=120;
     private String enCodedImage="";
-    Button register;
+    private Button register;
     private ProgressDialog pDialog;
+    private TextView login;
+    private Preferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        preferences = new Preferences(this);
         initView();
 
     }
@@ -58,9 +62,10 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
         password=findViewById(R.id.edt_pass);
         profileImg=findViewById(R.id.img_profile);
         register=findViewById(R.id.btn_register);
-
+        login = findViewById(R.id.loginBtn);
         profileImg.setOnClickListener(this);
         register.setOnClickListener(this);
+        login.setOnClickListener(this);
 
 
 
@@ -158,8 +163,11 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
 
                     if (response.isSuccessful()) {
 
-                        Intent intent = new Intent(Activity_Register.this, MainActivity.class);
-                        startActivity(intent);
+
+                        Intent i = new Intent(Activity_Register.this, ActivityReportResult.class);
+                        i.putExtra("user_id",response.body().getUser_id());
+                        preferences.CreateSharedPref(response.body().getUser_id());
+                        startActivity(i);
                         finish();
 
                     }else
@@ -199,6 +207,10 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
             case R.id.img_profile:
                 SelectPhoto();
                 break;
+
+            case R.id.loginBtn:
+                Back();
+                break;
         }
 
     }
@@ -235,5 +247,17 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
         byte [] bytes = outputStream.toByteArray();
 
         return Base64.encodeToString(bytes,Base64.DEFAULT);
+    }
+
+    private void Back()
+    {
+        Intent i = new Intent(this, Activity_Login.class);
+        startActivity(i);
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Back();
     }
 }

@@ -12,7 +12,7 @@
     <string name="governorate">المحافظة</string>
     <string name="city">المدينة</string>
     <string name="address">العنوان</string>
-    <string name="email">البريد الإلكتروني</string>
+    <string name="email">اسم المستخدم او البريد الالكتروني</string>
     <string name="country">الدولة</string>
     <string name="choose_photo">اختار صورة للمف الشخصي</string>
     <string name="create_account">انشاء حساب </string>
@@ -40,6 +40,7 @@
     <string name="add_phone_photo">أضافه صوره التلفون</string>
     <string name="send">ارسال</string>
     <string name="report_details">Report Detail</string>
+    <string name="logout">تسجيل الخروج</string>
 
 
 </resources>
