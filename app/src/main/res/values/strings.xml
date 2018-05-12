@@ -43,5 +43,8 @@
     <string name="send">Send</string>
     <string name="report_details">Report Detail</string>
     <string name="logout">Logout</string>
+    <string name="no_result">No results found Do you want to report this mobile?</string>
+    <string name="ok">ok</string>
+    <string name="no">No</string>
 
 </resources>

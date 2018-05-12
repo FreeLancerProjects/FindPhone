@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">فوني فين</string>
+
     <string name="username">اسم المستخدم</string>
     <string name="password">كلمة المرور</string>
     <string name="remember_me">تذكرني</string>
@@ -41,6 +43,9 @@
     <string name="send">ارسال</string>
     <string name="report_details">Report Detail</string>
     <string name="logout">تسجيل الخروج</string>
+    <string name="no_result">لاتوجد نتائج البحث هل تريد التبليغ عن هذا الجوال ؟</string>
+    <string name="ok">نعم</string>
+    <string name="no">لا</string>
 
 
 </resources>

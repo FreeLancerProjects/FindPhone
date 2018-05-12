@@ -98,9 +98,9 @@ public class ActivityReportResult extends AppCompatActivity {
 
     private void CreateAlertDialog() {
         alertDialog = new AlertDialog.Builder(this)
-                .setMessage("لاتوجد نتائج البحث هل تريد التبليغ عن هذا الجوال")
+                .setMessage(R.string.no_result)
                 .setCancelable(false)
-                .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent=new Intent(ActivityReportResult.this,ActivityReport.class);
@@ -108,7 +108,7 @@ public class ActivityReportResult extends AppCompatActivity {
                         startActivity(intent);
                         alertDialog.dismiss();
                     }
-                }).setNegativeButton("لا", new DialogInterface.OnClickListener() {
+                }).setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         alertDialog.dismiss();
