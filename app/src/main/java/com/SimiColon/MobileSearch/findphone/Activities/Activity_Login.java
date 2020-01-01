@@ -41,7 +41,7 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
             id = preferences.getId();
             if (!TextUtils.isEmpty(id) &&id !=null)
             {
-                Intent i = new Intent(Activity_Login.this, ActivityReportResult.class);
+                Intent i = new Intent(Activity_Login.this, MainActivity.class);
                 i.putExtra("user_id",id);
                 startActivity(i);
                 finish();
@@ -112,7 +112,7 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
                   if (response.body().getMessage()==1) {
 
                       String user_id=response.body().getUser_id();
-                        Intent i = new Intent(Activity_Login.this, ActivityReportResult.class);
+                        Intent i = new Intent(Activity_Login.this, MainActivity.class);
                         i.putExtra("user_id",user_id);
                         preferences.CreateSharedPref(user_id);
                         startActivity(i);

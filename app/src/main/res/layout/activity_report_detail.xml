@@ -48,15 +48,17 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp"
+            android:padding="5dp"
             >
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_200sdp"
-                android:id="@+id/img_phone"/>
+                android:id="@+id/img_phone"
+                android:scaleType="fitXY"
+                />
 
             <TextView
                 android:id="@+id/txt_imei"
@@ -65,15 +67,17 @@
                 android:layout_margin="@dimen/_20sdp"
                 android:textSize="20sp"
 
-                android:background="@drawable/et_bg"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimary"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                >
 
                 <TextView
                     android:layout_width="0dp"
@@ -89,8 +93,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:textColor="@color/white"
-                    android:background="@drawable/et_bg"
+                    android:textColor="@color/black"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -103,7 +106,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                >
 
                 <TextView
                     android:layout_width="0dp"
@@ -121,8 +127,7 @@
 
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:textColor="@color/white"
-                    android:background="@drawable/et_bg"
+                    android:textColor="@color/black"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -133,7 +138,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                >
 
                 <TextView
                     android:layout_width="0dp"
@@ -149,10 +157,9 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:gravity="center"
 
-                    android:background="@drawable/et_bg"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -163,7 +170,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                >
 
                 <TextView
                     android:layout_width="0dp"
@@ -179,8 +189,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:textColor="@color/white"
-                    android:background="@drawable/et_bg"
+                    android:textColor="@color/black"
                     android:gravity="center"
 
                     android:paddingRight="10dp"
@@ -193,7 +202,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                >
 
                 <TextView
                     android:layout_width="0dp"
@@ -209,8 +221,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:textColor="@color/white"
-                    android:background="@drawable/et_bg"
+                    android:textColor="@color/black"
                     android:gravity="center"
 
                     android:paddingRight="10dp"
@@ -223,7 +234,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                >
 
                 <TextView
                     android:layout_width="0dp"
@@ -239,10 +253,9 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:gravity="center"
 
-                    android:background="@drawable/et_bg"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"

@@ -22,10 +22,14 @@
     <string name="empty_username">user name is empty</string>
     <string name="empty_password">password is empty</string>
     <string name="inv_email">invalid email address</string>
+    <string name="empty_email">Enter Email Address </string>
+
     <string name="empty_phone">phone number is empty</string>
     <string name="empty_city">city number is empty</string>
     <string name="empty_country">country number is empty</string>
     <string name="empty_address">address number is empty</string>
+    <string name="inv_phone">Invaild PhoneNumber</string>
+
     <string name="at_least_3ch">at least 3 characters</string>
     <string name="pass_bet_4_10">between 4 and 10 alphanumeric characters</string>
     <string name="title_3ch">at least 3 characters</string>

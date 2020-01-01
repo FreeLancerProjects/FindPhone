@@ -164,7 +164,7 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
                     if (response.isSuccessful()) {
 
 
-                        Intent i = new Intent(Activity_Register.this, ActivityReportResult.class);
+                        Intent i = new Intent(Activity_Register.this, MainActivity.class);
                         i.putExtra("user_id",response.body().getUser_id());
                         preferences.CreateSharedPref(response.body().getUser_id());
                         startActivity(i);

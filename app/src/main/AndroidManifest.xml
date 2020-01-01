@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.SimiColon.MobileSearch.findphone">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,11 +11,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MainActivity" />
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
+        tools:targetApi="m">
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <activity android:name=".Activities.MainActivity"
+            />
         <activity
             android:name=".Activities.Activity_Login"
-            android:windowSoftInputMode="stateAlwaysHidden">
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,10 +32,20 @@
         </activity>
         <activity
             android:name=".Activities.Activity_Register"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".Activities.ActivityReport" />
-        <activity android:name=".Activities.ActivityReportResult" />
-        <activity android:name=".Activities.ReportDetail" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name=".Activities.ActivityReport"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+        <activity android:name=".Activities.ActivityReportResult"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
+        <activity android:name=".Activities.ReportDetail"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         </activity>
     </application>

@@ -63,56 +63,56 @@
             >
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_height="45dp"
+
                 app:fletPaddingLeft="@dimen/_5sdp"
                 app:fletPaddingRight="@dimen/_5sdp"
-
+                android:background="@drawable/login_regis_btn"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:padding="5dp"
 
                 >
+
+
                 <EditText
                     android:id="@+id/edt_name"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_23sdp"
+                    android:layout_height="35dp"
                     android:hint="@string/name"
-                    android:background="@drawable/et_bg"
                     android:paddingLeft="@dimen/_5sdp"
                     android:paddingRight="@dimen/_5sdp"
                     android:gravity="center_vertical|left"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/gray4"
                     android:drawableLeft="@drawable/name_icon"
                     android:textSize="14sp"
                     android:drawablePadding="@dimen/_5sdp"
+                    android:background="@color/white"
 
 
 
                     />
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5px"
-                android:background="#03A9F4"
-                android:layout_marginLeft="@dimen/_38sdp"
-                />
+
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
+                android:layout_height="45dp"
+                android:background="@drawable/login_regis_btn"
                 android:layout_marginBottom="@dimen/_5sdp"
+                android:padding="5dp"
+
                 app:fletPaddingLeft="@dimen/_5sdp"
                 app:fletPaddingRight="@dimen/_5sdp"
                 >
                 <EditText
                     android:id="@+id/edt_phone"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_23sdp"
+                    android:layout_height="35dp"
                     android:hint="@string/phone_num"
-                    android:background="@drawable/et_bg"
+                    android:background="@color/white"
                     android:paddingLeft="@dimen/_5sdp"
                     android:paddingRight="@dimen/_5sdp"
                     android:gravity="center_vertical|left"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/gray4"
                     android:drawableLeft="@drawable/phone_icon"
                     android:textSize="14sp"
                     android:drawablePadding="@dimen/_5sdp"
@@ -120,182 +120,152 @@
 
                     />
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5px"
-                android:background="#03A9F4"
-                android:layout_marginLeft="@dimen/_38sdp"
 
-                />
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
+                android:background="@drawable/login_regis_btn"
                 android:layout_marginBottom="@dimen/_5sdp"
-                android:background="@drawable/et_bg"
+                android:padding="5dp"
                 app:fletPaddingLeft="@dimen/_5sdp"
                 app:fletPaddingRight="@dimen/_5sdp"
                 >
                 <EditText
                     android:id="@+id/edt_email"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_23sdp"
+                    android:layout_height="35dp"
                     android:hint="@string/email"
-                    android:background="@drawable/et_bg"
+                    android:background="@color/white"
                     android:paddingLeft="@dimen/_5sdp"
                     android:paddingRight="@dimen/_5sdp"
                     android:gravity="center_vertical|left"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/gray4"
                     android:drawableLeft="@drawable/email_icon"
                     android:textSize="14sp"
                     android:drawablePadding="@dimen/_5sdp"
 
                     />
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5px"
-                android:background="#03A9F4"
-                android:layout_marginLeft="@dimen/_38sdp"
 
-                />
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
+                android:layout_height="45dp"
+                android:background="@drawable/login_regis_btn"
                 android:layout_marginBottom="@dimen/_5sdp"
+                android:padding="5dp"
                 app:fletPaddingLeft="@dimen/_5sdp"
                 app:fletPaddingRight="@dimen/_5sdp"
                 >
                 <EditText
                     android:id="@+id/edt_city"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_23sdp"
+                    android:layout_height="35dp"
                     android:hint="@string/city"
-                    android:background="@drawable/et_bg"
+                    android:background="@color/white"
                     android:paddingLeft="@dimen/_5sdp"
                     android:paddingRight="@dimen/_5sdp"
                     android:gravity="center_vertical|left"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/gray4"
                     android:drawableLeft="@drawable/place_icon"
                     android:textSize="14sp"
                     android:drawablePadding="@dimen/_5sdp"
 
                     />
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5px"
-                android:background="#03A9F4"
-                android:layout_marginLeft="@dimen/_38sdp"
 
-                />
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
+                android:layout_height="45dp"
+                android:background="@drawable/login_regis_btn"
                 android:layout_marginBottom="@dimen/_5sdp"
+                android:padding="5dp"
                 app:fletPaddingLeft="@dimen/_5sdp"
                 app:fletPaddingRight="@dimen/_5sdp"
                 >
                 <EditText
                     android:id="@+id/edt_country"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_23sdp"
+                    android:layout_height="35dp"
                     android:hint="@string/country"
-                    android:background="@drawable/et_bg"
+                    android:background="@color/white"
                     android:paddingLeft="@dimen/_5sdp"
                     android:paddingRight="@dimen/_5sdp"
                     android:gravity="center_vertical|left"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/gray4"
                     android:drawableLeft="@drawable/place_icon"
                     android:textSize="14sp"
                     android:drawablePadding="@dimen/_5sdp"
 
                     />
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5px"
-                android:background="#03A9F4"
-                android:layout_marginLeft="@dimen/_38sdp"
 
-                />
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
+                android:layout_height="45dp"
+                android:background="@drawable/login_regis_btn"
                 android:layout_marginBottom="@dimen/_5sdp"
+                android:padding="5dp"
                 app:fletPaddingLeft="@dimen/_5sdp"
                 app:fletPaddingRight="@dimen/_5sdp"
             >
             <EditText
                 android:id="@+id/edt_address"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_23sdp"
+                android:layout_height="35dp"
                 android:hint="@string/address"
-                android:background="@drawable/et_bg"
+                android:background="@color/white"
                 android:paddingLeft="@dimen/_5sdp"
                 android:paddingRight="@dimen/_5sdp"
                 android:gravity="center_vertical|left"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/gray4"
                 android:drawableLeft="@drawable/place_icon"
                 android:textSize="14sp"
                 android:drawablePadding="@dimen/_5sdp"
 
                 />
         </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5px"
-                android:background="#03A9F4"
-                android:layout_marginLeft="@dimen/_38sdp"
 
-                />
 
             <com.wrapp.floatlabelededittext.FloatLabeledEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
+                android:layout_height="45dp"
+                android:background="@drawable/login_regis_btn"
                 android:layout_marginBottom="@dimen/_5sdp"
+                android:padding="5dp"
                 app:fletPaddingLeft="@dimen/_5sdp"
                 app:fletPaddingRight="@dimen/_5sdp"
                 >
                 <EditText
                     android:id="@+id/edt_pass"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_23sdp"
+                    android:layout_height="35dp"
                     android:inputType="textPassword"
                     android:hint="@string/password"
-                    android:background="@drawable/et_bg"
+                    android:background="@color/white"
                     android:paddingLeft="@dimen/_5sdp"
                     android:paddingRight="@dimen/_5sdp"
                     android:gravity="center_vertical|left"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/gray4"
                     android:drawableLeft="@drawable/pass_icon"
                     android:textSize="14sp"
                     android:drawablePadding="@dimen/_5sdp"
 
                     />
             </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5px"
-                android:background="#03A9F4"
-                android:layout_marginLeft="@dimen/_38sdp"
 
-                />
             <Button
                 android:id="@+id/btn_register"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/login_regis_btn"
                 android:textColor="@color/colorPrimary"
                 android:text="@string/register"
                 android:textSize="16sp"
                 android:clickable="true"
+
                 />
             <TextView
                 android:id="@+id/loginBtn"
@@ -304,8 +274,9 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:text="@string/log_in"
-                android:textSize="@dimen/_16sdp"
+                android:textSize="16sp"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
                 />
         </LinearLayout>
 
