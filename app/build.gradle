@@ -6,9 +6,13 @@ android {
         applicationId "com.SimiColon.MobileSearch.findphone"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 6
+        versionName "1.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
     }
     buildTypes {
         release {
