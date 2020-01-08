@@ -60,16 +60,7 @@
                 android:scaleType="fitXY"
                 />
 
-            <TextView
-                android:id="@+id/txt_imei"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_20sdp"
-                android:textSize="20sp"
 
-                android:gravity="center"
-                android:textColor="@color/colorPrimary"
-                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,6 +68,7 @@
                 android:orientation="horizontal"
                 android:paddingRight="8dp"
                 android:paddingLeft="8dp"
+                android:background="@color/gray2"
                 >
 
                 <TextView
@@ -141,6 +133,8 @@
                 android:orientation="horizontal"
                 android:paddingRight="8dp"
                 android:paddingLeft="8dp"
+                android:background="@color/gray2"
+
                 >
 
                 <TextView
@@ -205,6 +199,7 @@
                 android:orientation="horizontal"
                 android:paddingRight="8dp"
                 android:paddingLeft="8dp"
+                android:background="@color/gray2"
                 >
 
                 <TextView
@@ -249,6 +244,40 @@
                     />
                 <TextView
                     android:id="@+id/txt_address"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                android:background="@color/gray2"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/imei"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_imei"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"

@@ -1,7 +1,9 @@
 package com.SimiColon.MobileSearch.findphone.Activities;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,6 +18,18 @@ import com.SimiColon.MobileSearch.findphone.R;
 import com.SimiColon.MobileSearch.findphone.Services.Preferences;
 import com.SimiColon.MobileSearch.findphone.Services.Service;
 import com.SimiColon.MobileSearch.findphone.Services.ServiceApi;
+import com.google.android.gms.common.internal.service.Common;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskExecutors;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+import com.jkb.vcedittext.VerificationCodeEditText;
+
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,7 +43,15 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
     private Preferences preferences;
     private String session,id;
 
-
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+    private String ids;
+    private String vercode;
+    private FirebaseAuth mAuth;
+    private Dialog dialog;
+    private VerificationCodeEditText verificationCodeEditText;
+    private ProgressDialog dialo;
+    private PhoneAuthProvider.ForceResendingToken mResendToken;
+    private Runnable mUpdateResults;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +73,7 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initView() {
+        authn();
         email = findViewById(R.id.edt_email);
         pass = findViewById(R.id.edt_password);
         login = findViewById(R.id.btn_login);
@@ -149,4 +172,86 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
             pDialog.dismiss();
     }
 
+
+    private void authn() {
+
+        mAuth= FirebaseAuth.getInstance();
+        mCallbacks=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+            @Override
+            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                //  super.onCodeSent(s, forceResendingToken);
+                ids=s;
+                mResendToken=forceResendingToken;
+                Log.e("authid",ids);
+            }
+
+            @Override
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) { ;
+//phoneAuthCredential.getProvider();
+
+                if(phoneAuthCredential.getSmsCode()!=null){
+                    verificationCodeEditText.setText(phoneAuthCredential.getSmsCode());
+                    siginwithcredental(phoneAuthCredential);}
+                else {
+                    siginwithcredental(phoneAuthCredential);
+                }
+
+
+
+            }
+
+            @Override
+            public void onVerificationFailed(@NonNull FirebaseException e) {
+                Log.e("llll",e.getMessage());
+            }
+
+            @Override
+            public void onCodeAutoRetrievalTimeOut(@NonNull String s) {
+                //   super.onCodeAutoRetrievalTimeOut(s);
+                Log.e("data",s);
+                //   mUpdateResults.run();
+
+
+            }
+        };
+
+    }
+    private void verfiycode(String code) {
+
+        if(ids!=null){
+            PhoneAuthCredential credential=PhoneAuthProvider.getCredential(ids,code);
+
+            siginwithcredental(credential);}
+    }
+
+    private void siginwithcredental(PhoneAuthCredential credential) {
+
+        dialo = new ProgressDialog(Activity_Login.this);
+        dialog.setCancelable(false);
+        dialog.show();
+        mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                dialo.dismiss();
+                dialog.dismiss();
+                if(task.isSuccessful()){
+
+                }
+
+            }
+        });
+    }
+
+    public void sendverficationcode(final String phone, final String phone_code) {
+        dialog.show();
+        Log.e("kkk",phone_code+phone);
+        mUpdateResults = new Runnable() {
+            public void run() {
+                PhoneAuthProvider.getInstance().verifyPhoneNumber(phone_code+phone,10, TimeUnit.SECONDS, TaskExecutors.MAIN_THREAD,  mCallbacks);
+            }
+        };
+        mUpdateResults.run();
+
+    }
 }

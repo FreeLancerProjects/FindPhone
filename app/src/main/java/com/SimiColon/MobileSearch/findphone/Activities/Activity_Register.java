@@ -1,10 +1,12 @@
 package com.SimiColon.MobileSearch.findphone.Activities;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,8 +14,10 @@ import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,9 +26,19 @@ import com.SimiColon.MobileSearch.findphone.R;
 import com.SimiColon.MobileSearch.findphone.Services.Preferences;
 import com.SimiColon.MobileSearch.findphone.Services.Service;
 import com.SimiColon.MobileSearch.findphone.Services.ServiceApi;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskExecutors;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+import com.jkb.vcedittext.VerificationCodeEditText;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -42,6 +56,15 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
     private ProgressDialog pDialog;
     private TextView login;
     private Preferences preferences;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+    private String ids;
+    private String vercode;
+    private FirebaseAuth mAuth;
+    private Dialog dialog;
+    private EditText verificationCodeEditText;
+    private ProgressDialog dialo;
+    private PhoneAuthProvider.ForceResendingToken mResendToken;
+    private Runnable mUpdateResults;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +75,8 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
     }
 
     private void initView() {
-
+        authn();
+        CreateSignAlertDialog();
         name=findViewById(R.id.edt_name);
         phone=findViewById(R.id.edt_phone);
         email=findViewById(R.id.edt_email);
@@ -71,7 +95,10 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
 
     }
     public void signUp() {
+if(TextUtils.isEmpty(name.getText().toString())||TextUtils.isEmpty(password.getText().toString())||TextUtils.isEmpty(email.getText().toString())||!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()||TextUtils.isEmpty(phone.getText().toString())||TextUtils.isEmpty(city.getText().toString())
 
+||TextUtils.isEmpty(country.getText().toString())||TextUtils.isEmpty(address.getText().toString())||!Patterns.PHONE.matcher(phone.getText().toString()).matches()
+){
         if (TextUtils.isEmpty(name.getText().toString()))
         {
             name.setError(getString(R.string.name));
@@ -124,12 +151,13 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
         if (TextUtils.isEmpty(address.getText().toString()))
         {
             address.setError(getString(R.string.empty_address));
-        }else
-        {
+        }else {
             address.setError(null);
-        }
+        }      }
+else {
+    sendverficationcode(phone.getText().toString(), "+20");
+}
 
-        saveToServerDB();
 
 
 
@@ -201,7 +229,7 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_register:
-                signUp();
+              signUp();
                 break;
 
             case R.id.img_profile:
@@ -260,4 +288,114 @@ public class Activity_Register extends AppCompatActivity implements View.OnClick
         super.onBackPressed();
         Back();
     }
+    private void authn() {
+
+        mAuth= FirebaseAuth.getInstance();
+        mCallbacks=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+            @Override
+            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                //  super.onCodeSent(s, forceResendingToken);
+                ids=s;
+                mResendToken=forceResendingToken;
+                Log.e("authid",ids);
+            }
+
+            @Override
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) { ;
+//phoneAuthCredential.getProvider();
+
+                if(phoneAuthCredential.getSmsCode()!=null){
+                    verificationCodeEditText.setText(phoneAuthCredential.getSmsCode());
+                    siginwithcredental(phoneAuthCredential);}
+                else {
+                    siginwithcredental(phoneAuthCredential);
+                }
+
+
+
+            }
+
+            @Override
+            public void onVerificationFailed(@NonNull FirebaseException e) {
+                Log.e("llll",e.getMessage());
+            }
+
+            @Override
+            public void onCodeAutoRetrievalTimeOut(@NonNull String s) {
+                //   super.onCodeAutoRetrievalTimeOut(s);
+                Log.e("data",s);
+                //   mUpdateResults.run();
+
+
+            }
+        };
+
+    }
+    private void verfiycode(String code) {
+
+        if(ids!=null){
+            PhoneAuthCredential credential=PhoneAuthProvider.getCredential(ids,code);
+
+            siginwithcredental(credential);}
+    }
+
+    private void siginwithcredental(PhoneAuthCredential credential) {
+
+        dialo = new ProgressDialog(Activity_Register.this);
+        dialog.setCancelable(false);
+        dialog.show();
+        mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                dialo.dismiss();
+                dialog.dismiss();
+                if(task.isSuccessful()){
+                    saveToServerDB();
+                }
+
+            }
+        });
+    }
+
+    public void sendverficationcode(String phone, final String phone_code) {
+        dialog.show();
+        Log.e("kkk",phone_code+phone);
+        if(phone.startsWith("0")){
+            phone=phone.replaceFirst("0","");
+        }
+        final String finalPhone = phone;
+        mUpdateResults = new Runnable() {
+            public void run() {
+                PhoneAuthProvider.getInstance().verifyPhoneNumber(phone_code+ finalPhone,10, TimeUnit.SECONDS, TaskExecutors.MAIN_THREAD,  mCallbacks);
+            }
+        };
+        mUpdateResults.run();
+
+    }
+    public void CreateSignAlertDialog() {
+        dialog = new Dialog(this, R.style.CustomAlertDialog);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.custom_dialog_login);
+        LinearLayout ll = dialog.findViewById(R.id.ll);
+        verificationCodeEditText=dialog.findViewById(R.id.edt_ver);
+        ll.setBackgroundResource(R.drawable.custom_bg_login);
+        Button confirm=dialog.findViewById(R.id.btn_confirm);
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vercode=verificationCodeEditText.getText().toString();
+                if(TextUtils.isEmpty(vercode)){
+                    verificationCodeEditText.setError(getResources().getString(R.string.verfication_code));
+                }
+                else {
+                    Log.e("code",vercode);
+                    verfiycode(vercode);
+
+                }
+            }
+        });
+    }
+
 }

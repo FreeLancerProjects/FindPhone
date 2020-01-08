@@ -156,7 +156,7 @@ public class ActivityReport extends AppCompatActivity implements View.OnClickLis
         String uowner = owner.getText().toString();
         String ustatue = statue.getText().toString();
         String udesc = description.getText().toString();
-        Toast.makeText(this, ""+user_id, Toast.LENGTH_SHORT).show();
+    //    Toast.makeText(this, ""+user_id, Toast.LENGTH_SHORT).show();
         Service services = ServiceApi.createClient().create(Service.class);
         Call<Report_Model> userCall = services.reportphone(user_id,uimei,ubrand,uowner,ustatue,uphone,uemail,uaddress,enCodedImage,udesc);
         userCall.enqueue(new Callback<Report_Model>() {
@@ -165,7 +165,7 @@ public class ActivityReport extends AppCompatActivity implements View.OnClickLis
                 hidepDialog();
 
                 if (response.isSuccessful()) {
-                    Toast.makeText(ActivityReport.this, ""+uimei, Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(ActivityReport.this, ""+uimei, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ActivityReport.this, MainActivity.class);
                     startActivity(intent);
                     finish();

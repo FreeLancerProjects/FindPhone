@@ -50,5 +50,7 @@
     <string name="no_result">No results found Do you want to report this mobile?</string>
     <string name="ok">ok</string>
     <string name="no">No</string>
-
+    <string name="verfication_code">Verfication Code</string>
+    <string name="a_message_will_appear_on_your_phone_by_barely_waiting_your_seconds">A message will appear on your phone by barely waiting your seconds</string>
+    <string name="confirm">Confirm</string>
 </resources>
